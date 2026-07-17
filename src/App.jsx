@@ -37,6 +37,157 @@ const books = [
     title: "Fun Start Handwriting Workbook 4 PP2",
     price: 464.0,
   },
+
+{
+  isbn: "9780195728989",
+  title: "NPPE: RS.1a - Seven Little Chicks",
+  price: 249.4,
+},
+{
+  isbn: "9780195728996",
+  title: "NPPE: RS.1b - The Greedy Hyena",
+  price: 249.4,
+},
+{
+  isbn: "9780195729009",
+  title: "NPPE: RS.1c - Manga goes to School",
+  price: 249.4,
+},
+{
+  isbn: "9780195729016",
+  title: "NPPE: RS.1d - Goat Matata",
+  price: 249.4,
+},
+{
+  isbn: "9780195730364",
+  title: "NPPE: RS.1e - Koba the Cockroach",
+  price: 249.4,
+},
+{
+  isbn: "9780195738490",
+  title: "Moses",
+  price: 533.6,
+},
+{
+  isbn: "9780195738506",
+  title: "Moses and Kidnappers",
+  price: 533.6,
+},
+{
+  isbn: "9780195738513",
+  title: "Moses and Mildred",
+  price: 533.6,
+},
+{
+  isbn: "9780195738520",
+  title: "Moses in a Muddle",
+  price: 533.6,
+},
+{
+  isbn: "9780195738537",
+  title: "Moses in Trouble",
+  price: 533.6,
+},
+{
+  isbn: "9780195738575",
+  title: "Moses and the Penpal",
+  price: 533.6,
+},
+{
+  isbn: "9780195738568",
+  title: "Moses on the Move",
+  price: 533.6,
+},
+{
+  isbn: "9780195738544",
+  title: "Moses the Camper",
+  price: 533.6,
+},
+{
+  isbn: "9780195733136",
+  title: "Swahili Readers: 1 - Maneno ya Mwanzo",
+  price: 249.4,
+},
+{
+  isbn: "9780195730524",
+  title: "Swahili Readers: 1a - Matunda Sita Mtini",
+  price: 249.4,
+},
+{
+  isbn: "9780195730531",
+  title: "Swahili Readers: 1b - Nikicheka Anacheka",
+  price: 249.4,
+},
+{
+  isbn: "9780195730548",
+  title: "Swahili Readers: 1c - Nyimbo Zetu",
+  price: 249.4,
+},
+{
+  isbn: "9780195734515",
+  title: "Swahili Readers: 1d - Paka Mtundu",
+  price: 249.4,
+},
+{
+  isbn: "9780195734522",
+  title: "Swahili Readers: 1e - Nipe Sababu",
+  price: 249.4,
+},
+{
+  isbn: "9780195738339",
+  title: "Swahili Readers: 1f - Mwili Wangu",
+  price: 249.4,
+},
+{
+  isbn: "9780195730586",
+  title: "Swahili Readers: 2a - Sungura Mjanja",
+  price: 249.4,
+},
+{
+  isbn: "9780195746167",
+  title: "Kamusi ya Kiswahili Sanifu 4TH ED",
+  price: 1183.2,
+},
+{
+  isbn: "9780195748956",
+  title: "Kamusi Maridhawa ya Methali",
+  price: 1276.0,
+},
+{
+  isbn: "9780194420952",
+  title: "Oxford Primary Dictionary for East Africa (OPDEA)",
+  price: 1067.2,
+},
+{
+  isbn: "9780194333665",
+  title: "Oxford Basic English Dictionary 4th Ed (OBED)",
+  price: 1136.8,
+},
+{
+  isbn: "9780194406147",
+  title: "Oxford Student’s Dictionary of English (OSD) 4TH ED",
+  price: 1334.0,
+},
+{
+  isbn: "9780194095228",
+  title: "Oxford Advanced Learner’s Dictionary (OALD) 11th Ed",
+  price: 2099.6,
+},
+{
+  isbn: "9789914443189",
+  title: "360⁰ CBC Primary Atlas",
+  price: 1334.0,
+},
+{
+  isbn: "9789914445442",
+  title: "360⁰ Junior School Atlas",
+  price: 1508.0,
+},
+{
+  isbn: "9789914440591",
+  title: "360⁰ Atlas for Secondary Schools 3rd Ed",
+  price: 1183.2,
+},
 ];
 
 export default function OUPOrderPortal() {
