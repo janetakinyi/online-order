@@ -1,10 +1,11 @@
 import React, { useMemo, useState } from "react";
+import Select from "react-select";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 
-const DEFAULT_DISCOUNT = 30;
+const DEFAULT_DISCOUNT = 0;
 
 const books = [
   {
@@ -190,6 +191,13 @@ const books = [
 },
 ];
 
+
+const bookOptions = books.map((book) => ({
+  value: book,
+  label: `${book.title} (${book.isbn})`,
+}));
+
+
 export default function OUPOrderPortal() {
   const formatKES = (amount) =>
     Number(amount).toLocaleString("en-KE", {
@@ -200,8 +208,7 @@ export default function OUPOrderPortal() {
   const [discountPercent, setDiscountPercent] =
     useState(DEFAULT_DISCOUNT);
 
-  const [searchTerm, setSearchTerm] = useState("");
-
+  
   const [customer, setCustomer] = useState({
     name: "",
     phone: "",
@@ -212,35 +219,51 @@ export default function OUPOrderPortal() {
 
   const [cart, setCart] = useState([]);
 
-  const [orderDate] = useState(
+const [selectedBook, setSelectedBook] = useState(null);
+const [quantity, setQuantity] = useState(1);
+
+ const [orderDate] = useState(
     new Date().toLocaleDateString("en-KE")
   );
 
-  const [poNumber, setPoNumber] = useState("");
+const addBook = () => {
+  if (!selectedBook) {
+    alert("Please select a book.");
+    return;
+  }
 
-  const filteredBooks = useMemo(() => {
-    return books.filter(
-      (book) =>
-        book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        book.isbn.includes(searchTerm)
+  const qty = Number(quantity) || 1;
+
+  setCart((prev) => {
+    const exists = prev.find(
+      (item) => item.isbn === selectedBook.isbn
     );
-  }, [searchTerm]);
 
-  const addBook = (book) => {
-    setCart((prev) => {
-      const exists = prev.find((item) => item.isbn === book.isbn);
+    if (exists) {
+      return prev.map((item) =>
+        item.isbn === selectedBook.isbn
+          ? {
+              ...item,
+              quantity: item.quantity + qty,
+            }
+          : item
+      );
+    }
 
-      if (exists) {
-        return prev.map((item) =>
-          item.isbn === book.isbn
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      }
+    return [
+      ...prev,
+      {
+        ...selectedBook,
+        quantity: qty,
+      },
+    ];
+  });
 
-      return [...prev, { ...book, quantity: 1 }];
-    });
-  };
+  setSelectedBook(null);
+  setQuantity(1);
+};
+
+
 
   const updateQty = (isbn, qty) => {
     setCart((prev) =>
@@ -339,11 +362,6 @@ export default function OUPOrderPortal() {
       return;
     }
 
-    if (!poNumber.trim()) {
-      alert("Please enter a PO Number");
-      return;
-    }
-
     const doc = new jsPDF();
 
     doc.setFontSize(18);
@@ -354,14 +372,13 @@ export default function OUPOrderPortal() {
 
     doc.setFontSize(11);
     doc.text(`Date: ${orderDate}`, 14, 40);
-    doc.text(`PO Number: ${poNumber}`, 14, 48);
-    doc.text(`Customer: ${customer.name}`, 14, 56);
-    doc.text(`Phone: ${customer.phone}`, 14, 64);
-    doc.text(`Email: ${customer.email}`, 14, 72);
-    doc.text(`Town: ${customer.town}`, 14, 80);
+    doc.text(`Customer: ${customer.name}`, 14, 48);
+    doc.text(`Phone: ${customer.phone}`, 14, 56);
+    doc.text(`Email: ${customer.email}`, 14, 64);
+    doc.text(`Town: ${customer.town}`, 14, 72);
 
     autoTable(doc, {
-      startY: 92,
+      startY: 84,
       head: [[
         "ISBN",
         "QTY",
@@ -418,7 +435,6 @@ export default function OUPOrderPortal() {
       ["OUP ORDER FORM"],
       [],
       ["Date", orderDate],
-      ["PO Number", poNumber],
       ["Customer Name", customer.name],
       ["Phone", customer.phone],
       ["Email", customer.email],
@@ -472,17 +488,13 @@ export default function OUPOrderPortal() {
       <div className="card">
         <h3>Order Information</h3>
 
-        <div className="grid">
-          <input value={orderDate} readOnly />
-
-          <input
-            type="text"
-            placeholder="Enter PO Number"
-            value={poNumber}
-            onChange={(e) => setPoNumber(e.target.value)}
-          />
-        </div>
-      </div>
+<div className="grid">
+  <input
+    value={orderDate}
+    readOnly
+  />
+</div>
+ </div>
 
       <div className="card">
         <h3>Customer Details</h3>
@@ -546,30 +558,45 @@ export default function OUPOrderPortal() {
         </div>
       </div>
 
-      <div className="card">
-        <input
-          type="text"
-          placeholder="Search by ISBN or Book Title"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
 
-        <div className="books">
-          {filteredBooks.map((book) => (
-            <div key={book.isbn} className="book">
-              <strong>{book.title}</strong>
+<div className="card">
+  <h3>Select Book</h3>
 
-              <p>{book.isbn}</p>
+  <Select
+    options={bookOptions}
+    value={
+      selectedBook
+        ? {
+            value: selectedBook,
+            label: `${selectedBook.title} (${selectedBook.isbn})`,
+          }
+        : null
+    }
+    onChange={(option) =>
+      setSelectedBook(option ? option.value : null)
+    }
+    placeholder="Search by ISBN or Book Title..."
+    isSearchable
+    isClearable
+  />
 
-              <p>KES {formatKES(book.price)}</p>
+  <br />
 
-              <button onClick={() => addBook(book)}>
-                Add
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
+  <input
+    type="number"
+    min="1"
+    value={quantity}
+    onChange={(e) => setQuantity(Number(e.target.value))}
+    placeholder="Quantity"
+  />
+
+  <br />
+  <br />
+
+  <button onClick={addBook}>
+    Add to Cart
+  </button>
+</div>
 
       <div
         id="printable-order"
