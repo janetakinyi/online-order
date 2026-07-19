@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
@@ -38,165 +38,162 @@ const books = [
     title: "Fun Start Handwriting Workbook 4 PP2",
     price: 464.0,
   },
-
-{
-  isbn: "9780195728989",
-  title: "NPPE: RS.1a - Seven Little Chicks",
-  price: 249.4,
-},
-{
-  isbn: "9780195728996",
-  title: "NPPE: RS.1b - The Greedy Hyena",
-  price: 249.4,
-},
-{
-  isbn: "9780195729009",
-  title: "NPPE: RS.1c - Manga goes to School",
-  price: 249.4,
-},
-{
-  isbn: "9780195729016",
-  title: "NPPE: RS.1d - Goat Matata",
-  price: 249.4,
-},
-{
-  isbn: "9780195730364",
-  title: "NPPE: RS.1e - Koba the Cockroach",
-  price: 249.4,
-},
-{
-  isbn: "9780195738490",
-  title: "Moses",
-  price: 533.6,
-},
-{
-  isbn: "9780195738506",
-  title: "Moses and Kidnappers",
-  price: 533.6,
-},
-{
-  isbn: "9780195738513",
-  title: "Moses and Mildred",
-  price: 533.6,
-},
-{
-  isbn: "9780195738520",
-  title: "Moses in a Muddle",
-  price: 533.6,
-},
-{
-  isbn: "9780195738537",
-  title: "Moses in Trouble",
-  price: 533.6,
-},
-{
-  isbn: "9780195738575",
-  title: "Moses and the Penpal",
-  price: 533.6,
-},
-{
-  isbn: "9780195738568",
-  title: "Moses on the Move",
-  price: 533.6,
-},
-{
-  isbn: "9780195738544",
-  title: "Moses the Camper",
-  price: 533.6,
-},
-{
-  isbn: "9780195733136",
-  title: "Swahili Readers: 1 - Maneno ya Mwanzo",
-  price: 249.4,
-},
-{
-  isbn: "9780195730524",
-  title: "Swahili Readers: 1a - Matunda Sita Mtini",
-  price: 249.4,
-},
-{
-  isbn: "9780195730531",
-  title: "Swahili Readers: 1b - Nikicheka Anacheka",
-  price: 249.4,
-},
-{
-  isbn: "9780195730548",
-  title: "Swahili Readers: 1c - Nyimbo Zetu",
-  price: 249.4,
-},
-{
-  isbn: "9780195734515",
-  title: "Swahili Readers: 1d - Paka Mtundu",
-  price: 249.4,
-},
-{
-  isbn: "9780195734522",
-  title: "Swahili Readers: 1e - Nipe Sababu",
-  price: 249.4,
-},
-{
-  isbn: "9780195738339",
-  title: "Swahili Readers: 1f - Mwili Wangu",
-  price: 249.4,
-},
-{
-  isbn: "9780195730586",
-  title: "Swahili Readers: 2a - Sungura Mjanja",
-  price: 249.4,
-},
-{
-  isbn: "9780195746167",
-  title: "Kamusi ya Kiswahili Sanifu 4TH ED",
-  price: 1183.2,
-},
-{
-  isbn: "9780195748956",
-  title: "Kamusi Maridhawa ya Methali",
-  price: 1276.0,
-},
-{
-  isbn: "9780194420952",
-  title: "Oxford Primary Dictionary for East Africa (OPDEA)",
-  price: 1067.2,
-},
-{
-  isbn: "9780194333665",
-  title: "Oxford Basic English Dictionary 4th Ed (OBED)",
-  price: 1136.8,
-},
-{
-  isbn: "9780194406147",
-  title: "Oxford Student’s Dictionary of English (OSD) 4TH ED",
-  price: 1334.0,
-},
-{
-  isbn: "9780194095228",
-  title: "Oxford Advanced Learner’s Dictionary (OALD) 11th Ed",
-  price: 2099.6,
-},
-{
-  isbn: "9789914443189",
-  title: "360⁰ CBC Primary Atlas",
-  price: 1334.0,
-},
-{
-  isbn: "9789914445442",
-  title: "360⁰ Junior School Atlas",
-  price: 1508.0,
-},
-{
-  isbn: "9789914440591",
-  title: "360⁰ Atlas for Secondary Schools 3rd Ed",
-  price: 1183.2,
-},
+  {
+    isbn: "9780195728989",
+    title: "NPPE: RS.1a - Seven Little Chicks",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195728996",
+    title: "NPPE: RS.1b - The Greedy Hyena",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195729009",
+    title: "NPPE: RS.1c - Manga goes to School",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195729016",
+    title: "NPPE: RS.1d - Goat Matata",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195730364",
+    title: "NPPE: RS.1e - Koba the Cockroach",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195738490",
+    title: "Moses",
+    price: 533.6,
+  },
+  {
+    isbn: "9780195738506",
+    title: "Moses and Kidnappers",
+    price: 533.6,
+  },
+  {
+    isbn: "9780195738513",
+    title: "Moses and Mildred",
+    price: 533.6,
+  },
+  {
+    isbn: "9780195738520",
+    title: "Moses in a Muddle",
+    price: 533.6,
+  },
+  {
+    isbn: "9780195738537",
+    title: "Moses in Trouble",
+    price: 533.6,
+  },
+  {
+    isbn: "9780195738575",
+    title: "Moses and the Penpal",
+    price: 533.6,
+  },
+  {
+    isbn: "9780195738568",
+    title: "Moses on the Move",
+    price: 533.6,
+  },
+  {
+    isbn: "9780195738544",
+    title: "Moses the Camper",
+    price: 533.6,
+  },
+  {
+    isbn: "9780195733136",
+    title: "Swahili Readers: 1 - Maneno ya Mwanzo",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195730524",
+    title: "Swahili Readers: 1a - Matunda Sita Mtini",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195730531",
+    title: "Swahili Readers: 1b - Nikicheka Anacheka",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195730548",
+    title: "Swahili Readers: 1c - Nyimbo Zetu",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195734515",
+    title: "Swahili Readers: 1d - Paka Mtundu",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195734522",
+    title: "Swahili Readers: 1e - Nipe Sababu",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195738339",
+    title: "Swahili Readers: 1f - Mwili Wangu",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195730586",
+    title: "Swahili Readers: 2a - Sungura Mjanja",
+    price: 249.4,
+  },
+  {
+    isbn: "9780195746167",
+    title: "Kamusi ya Kiswahili Sanifu 4TH ED",
+    price: 1183.2,
+  },
+  {
+    isbn: "9780195748956",
+    title: "Kamusi Maridhawa ya Methali",
+    price: 1276.0,
+  },
+  {
+    isbn: "9780194420952",
+    title: "Oxford Primary Dictionary for East Africa (OPDEA)",
+    price: 1067.2,
+  },
+  {
+    isbn: "9780194333665",
+    title: "Oxford Basic English Dictionary 4th Ed (OBED)",
+    price: 1136.8,
+  },
+  {
+    isbn: "9780194406147",
+    title: "Oxford Student's Dictionary of English (OSD) 4TH ED",
+    price: 1334.0,
+  },
+  {
+    isbn: "9780194095228",
+    title: "Oxford Advanced Learner's Dictionary (OALD) 11th Ed",
+    price: 2099.6,
+  },
+  {
+    isbn: "9789914443189",
+    title: "360° CBC Primary Atlas",
+    price: 1334.0,
+  },
+  {
+    isbn: "9789914445442",
+    title: "360° Junior School Atlas",
+    price: 1508.0,
+  },
+  {
+    isbn: "9789914440591",
+    title: "360° Atlas for Secondary Schools 3rd Ed",
+    price: 1183.2,
+  },
 ];
-
 
 const bookOptions = books.map((book) => ({
   value: book,
   label: `${book.title} (${book.isbn})`,
 }));
-
 
 export default function OUPOrderPortal() {
   const formatKES = (amount) =>
@@ -205,10 +202,8 @@ export default function OUPOrderPortal() {
       maximumFractionDigits: 2,
     });
 
-  const [discountPercent, setDiscountPercent] =
-    useState(DEFAULT_DISCOUNT);
+  const [discountPercent, setDiscountPercent] = useState(DEFAULT_DISCOUNT);
 
-  
   const [customer, setCustomer] = useState({
     name: "",
     phone: "",
@@ -218,52 +213,50 @@ export default function OUPOrderPortal() {
   });
 
   const [cart, setCart] = useState([]);
+  const [selectedBook, setSelectedBook] = useState(null);
+  const [quantity, setQuantity] = useState(1);
 
-const [selectedBook, setSelectedBook] = useState(null);
-const [quantity, setQuantity] = useState(1);
-
- const [orderDate] = useState(
+  const [orderDate] = useState(
     new Date().toLocaleDateString("en-KE")
   );
 
-const addBook = () => {
-  if (!selectedBook) {
-    alert("Please select a book.");
-    return;
-  }
-
-  const qty = Number(quantity) || 1;
-
-  setCart((prev) => {
-    const exists = prev.find(
-      (item) => item.isbn === selectedBook.isbn
-    );
-
-    if (exists) {
-      return prev.map((item) =>
-        item.isbn === selectedBook.isbn
-          ? {
-              ...item,
-              quantity: item.quantity + qty,
-            }
-          : item
-      );
+  const [poNumber, setPoNumber] = useState("");
+    const addBook = () => {
+    if (!selectedBook) {
+      alert("Please select a book.");
+      return;
     }
 
-    return [
-      ...prev,
-      {
-        ...selectedBook,
-        quantity: qty,
-      },
-    ];
-  });
+    const qty = Number(quantity) || 1;
 
-  setSelectedBook(null);
-  setQuantity(1);
-};
+    setCart((prev) => {
+      const existing = prev.find(
+        (item) => item.isbn === selectedBook.isbn
+      );
 
+      if (existing) {
+        return prev.map((item) =>
+          item.isbn === selectedBook.isbn
+            ? {
+                ...item,
+                quantity: item.quantity + qty,
+              }
+            : item
+        );
+      }
 
+      return [
+        ...prev,
+        {
+          ...selectedBook,
+          quantity: qty,
+        },
+      ];
+    });
+
+    setSelectedBook(null);
+    setQuantity(1);
+  };
 
   const updateQty = (isbn, qty) => {
     setCart((prev) =>
@@ -298,7 +291,8 @@ const addBook = () => {
     });
 
     setCart([]);
-    setSearchTerm("");
+    setSelectedBook(null);
+    setQuantity(1);
     setDiscountPercent(DEFAULT_DISCOUNT);
     setPoNumber("");
   };
@@ -311,36 +305,35 @@ const addBook = () => {
   const discount = subtotal * (discountPercent / 100);
 
   const grandTotal = subtotal - discount;
-
-  const printOrder = () => {
+   const printOrder = () => {
     const printable = document.getElementById("printable-order");
 
     if (!printable) {
-      alert("Nothing to print.");
+      alert("Nothing to view.");
       return;
     }
 
-    const printWindow = window.open("", "_blank");
+    const viewWindow = window.open("", "_blank");
 
-    printWindow.document.write(`
+    viewWindow.document.write(`
       <html>
         <head>
           <title>OUP Order Form</title>
           <style>
-            body{
-              font-family:Arial,sans-serif;
-              padding:20px;
+            body {
+              font-family: Arial, sans-serif;
+              padding: 20px;
             }
-            table{
-              width:100%;
-              border-collapse:collapse;
+            table {
+              width: 100%;
+              border-collapse: collapse;
             }
-            table,th,td{
-              border:1px solid #000;
+            table, th, td {
+              border: 1px solid #000;
             }
-            th,td{
-              padding:8px;
-              text-align:left;
+            th, td {
+              padding: 8px;
+              text-align: left;
             }
           </style>
         </head>
@@ -350,15 +343,12 @@ const addBook = () => {
       </html>
     `);
 
-    printWindow.document.close();
-    printWindow.focus();
-    printWindow.print();
-    printWindow.close();
+    viewWindow.document.close();
   };
 
   const generatePDF = () => {
     if (cart.length === 0) {
-      alert("Please add books first");
+      alert("Please add books first.");
       return;
     }
 
@@ -372,20 +362,19 @@ const addBook = () => {
 
     doc.setFontSize(11);
     doc.text(`Date: ${orderDate}`, 14, 40);
-    doc.text(`Customer: ${customer.name}`, 14, 48);
-    doc.text(`Phone: ${customer.phone}`, 14, 56);
-    doc.text(`Email: ${customer.email}`, 14, 64);
-    doc.text(`Town: ${customer.town}`, 14, 72);
+
+    if (poNumber.trim()) {
+      doc.text(`PO Number: ${poNumber}`, 14, 48);
+    }
+
+    doc.text(`Customer: ${customer.name}`, 14, 56);
+    doc.text(`Phone: ${customer.phone}`, 14, 64);
+    doc.text(`Email: ${customer.email}`, 14, 72);
+    doc.text(`Town: ${customer.town}`, 14, 80);
 
     autoTable(doc, {
-      startY: 84,
-      head: [[
-        "ISBN",
-        "QTY",
-        "Title",
-        "Unit Price",
-        "Amount"
-      ]],
+      startY: 92,
+      head: [["ISBN", "Qty", "Title", "Unit Price", "Amount"]],
       body: cart.map((item) => [
         item.isbn,
         item.quantity,
@@ -397,35 +386,20 @@ const addBook = () => {
 
     const finalY = (doc.lastAutoTable?.finalY || 100) + 15;
 
-    doc.text(
-      `Subtotal: KES ${formatKES(subtotal)}`,
-      14,
-      finalY
-    );
-
+    doc.text(`Subtotal: KES ${formatKES(subtotal)}`, 14, finalY);
     doc.text(
       `Discount (${discountPercent.toFixed(2)}%): KES ${formatKES(discount)}`,
       14,
       finalY + 10
     );
+    doc.text(`Grand Total: KES ${formatKES(grandTotal)}`, 14, finalY + 20);
 
-    doc.text(
-      `Grand Total: KES ${formatKES(grandTotal)}`,
-      14,
-      finalY + 20
-    );
-
-    doc.save(`OUP_Order_${poNumber}.pdf`);
+    doc.save(`OUP_Order_${poNumber || orderDate}.pdf`);
   };
 
   const downloadExcel = () => {
     if (cart.length === 0) {
-      alert("Please add books first");
-      return;
-    }
-
-    if (!poNumber.trim()) {
-      alert("Please enter a PO Number");
+      alert("Please add books first.");
       return;
     }
 
@@ -435,6 +409,7 @@ const addBook = () => {
       ["OUP ORDER FORM"],
       [],
       ["Date", orderDate],
+      ...(poNumber.trim() ? [["PO Number", poNumber]] : []),
       ["Customer Name", customer.name],
       ["Phone", customer.phone],
       ["Email", customer.email],
@@ -476,10 +451,8 @@ const addBook = () => {
       type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     });
 
-    saveAs(file, `OUP_Order_${poNumber}.xlsx`);
+    saveAs(file, `OUP_Order_${poNumber || orderDate}.xlsx`);
   };
-
-
   return (
     <div className="container">
       <h1>Oxford University Press East Africa</h1>
@@ -488,13 +461,17 @@ const addBook = () => {
       <div className="card">
         <h3>Order Information</h3>
 
-<div className="grid">
-  <input
-    value={orderDate}
-    readOnly
-  />
-</div>
- </div>
+        <div className="grid">
+          <input value={orderDate} readOnly />
+
+          <input
+            type="text"
+            placeholder="PO Number (Optional)"
+            value={poNumber}
+            onChange={(e) => setPoNumber(e.target.value)}
+          />
+        </div>
+      </div>
 
       <div className="card">
         <h3>Customer Details</h3>
@@ -512,7 +489,7 @@ const addBook = () => {
           />
 
           <input
-            placeholder="Phone"
+            placeholder="Phone Number"
             value={customer.phone}
             onChange={(e) =>
               setCustomer({
@@ -545,8 +522,8 @@ const addBook = () => {
           />
 
           <textarea
+            rows={3}
             placeholder="Address"
-            rows="3"
             value={customer.address}
             onChange={(e) =>
               setCustomer({
@@ -557,46 +534,45 @@ const addBook = () => {
           />
         </div>
       </div>
+      <div className="card">
+        <h3>Select Book</h3>
 
-
-<div className="card">
-  <h3>Select Book</h3>
-
-  <Select
-    options={bookOptions}
-    value={
-      selectedBook
-        ? {
-            value: selectedBook,
-            label: `${selectedBook.title} (${selectedBook.isbn})`,
+        <Select
+          options={bookOptions}
+          value={
+            selectedBook
+              ? {
+                  value: selectedBook,
+                  label: `${selectedBook.title} (${selectedBook.isbn})`,
+                }
+              : null
           }
-        : null
-    }
-    onChange={(option) =>
-      setSelectedBook(option ? option.value : null)
-    }
-    placeholder="Search by ISBN or Book Title..."
-    isSearchable
-    isClearable
-  />
+          onChange={(option) =>
+            setSelectedBook(option ? option.value : null)
+          }
+          placeholder="Search by ISBN or Book Title..."
+          isSearchable
+          isClearable
+        />
 
-  <br />
+        <br />
 
-  <input
-    type="number"
-    min="1"
-    value={quantity}
-    onChange={(e) => setQuantity(Number(e.target.value))}
-    placeholder="Quantity"
-  />
+        <input
+          type="number"
+          min="1"
+          value={quantity}
+          onChange={(e) =>
+            setQuantity(Number(e.target.value))
+          }
+        />
 
-  <br />
-  <br />
+        <br />
+        <br />
 
-  <button onClick={addBook}>
-    Add to Cart
-  </button>
-</div>
+        <button onClick={addBook}>
+          Add to Cart
+        </button>
+      </div>
 
       <div
         id="printable-order"
@@ -612,7 +588,7 @@ const addBook = () => {
               <th>Qty</th>
               <th>Price</th>
               <th>Total</th>
-              <th></th>
+              <th>Action</th>
             </tr>
           </thead>
 
@@ -637,14 +613,11 @@ const addBook = () => {
                   />
                 </td>
 
-                <td>
-                  {formatKES(item.price)}
-                </td>
+                <td>{formatKES(item.price)}</td>
 
                 <td>
                   {formatKES(
-                    item.quantity *
-                      item.price
+                    item.price * item.quantity
                   )}
                 </td>
 
@@ -661,39 +634,33 @@ const addBook = () => {
             ))}
           </tbody>
         </table>
-
-        <div className="summary">
+         <div className="summary">
           <label>Discount %</label>
 
           <input
             type="number"
+            min="0"
+            max="100"
             value={discountPercent}
             onChange={(e) =>
-              setDiscountPercent(
-                Number(e.target.value)
-              )
+              setDiscountPercent(Number(e.target.value))
             }
           />
 
-          <button
-            onClick={resetDiscount}
-          >
+          <button onClick={resetDiscount}>
             Reset Discount
           </button>
 
           <h3>
-            Subtotal: KES{" "}
-            {formatKES(subtotal)}
+            Subtotal: KES {formatKES(subtotal)}
           </h3>
 
           <h3>
-            Discount: KES{" "}
-            {formatKES(discount)}
+            Discount: KES {formatKES(discount)}
           </h3>
 
           <h2>
-            Grand Total: KES{" "}
-            {formatKES(grandTotal)}
+            Grand Total: KES {formatKES(grandTotal)}
           </h2>
         </div>
       </div>
@@ -708,7 +675,7 @@ const addBook = () => {
         </button>
 
         <button onClick={printOrder}>
-          Print
+          View Order
         </button>
 
         <button onClick={resetForm}>
