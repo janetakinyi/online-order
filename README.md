@@ -1,16 +1,73 @@
-# React + Vite
+# 📚 Campus Book Ordering System
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive web application for universities and campuses to browse a book catalogue, build orders, and export them as PDF, Excel, or print.
 
-Currently, two official plugins are available:
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Click%20Here-brightgreen)](https://online-order-1.onrender.com)
+[![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.1-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**👉 [Click here to view the live application](https://online-order-1.onrender.com)**
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🎯 What This App Does
+
+This is a campus book ordering tool built to help universities, colleges, and academic institutions streamline book requisitions. It lets staff or administrators:
+
+1. Browse a catalogue of books with ISBN, title, and price.
+2. Search for a book by title or ISBN using a searchable dropdown.
+3. Add books to a cart, set quantities, and remove items.
+4. Enter customer details (name, phone, email, town, address).
+5. Apply a discount (percentage based).
+6. See a live total — subtotal, discount, and grand total.
+7. View the order in a clean formatted layout.
+8. Export the order as a PDF, Excel file, or print it.
+9. Reset the form to start a new order.
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 📖 Book Catalogue | Browse books with ISBN, title, and price |
+| 🔍 Searchable Dropdown | Find books by ISBN or title instantly |
+| 🛒 Shopping Cart | Add, update quantity, and remove items |
+| 💰 Discount Control | Adjustable percentage discount (default 0%) |
+| 👤 Customer Form | Capture name, phone, email, town, and address |
+| 👁️ View Order | Preview the full order before exporting |
+| 📄 PDF Export | Generate professional order PDFs |
+| 📊 Excel Export | Download orders as Excel spreadsheets |
+| 🖨️ Print Support | Print the order in a clean layout |
+| 🔄 Reset Form | Clear all data with one click |
+| 📱 Responsive | Works on desktop, tablet, and mobile |
+
+---
+
+## 🛠️ Technologies Used
+
+- **React 19.2** — UI library
+- **Vite 8.1** — Build tool
+- **Tailwind CSS** — Styling
+- **react-select 5.10** — Searchable dropdown
+- **jsPDF 4.2.1** — PDF generation
+- **jspdf-autotable 5.0.8** — PDF tables
+- **xlsx 0.18.5** — Excel export
+- **file-saver 2.0.5** — File downloads
+- **oxlint 1.71** — Linter
+- **Render** — Hosting (static site)
+
+---
+
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/janetakinyi/online-order.git
+cd online-order
+npm install
+npm run dev
