@@ -355,7 +355,7 @@ export default function OUPOrderPortal() {
     const doc = new jsPDF();
 
     doc.setFontSize(18);
-    doc.text("Oxford University Press East Africa", 14, 20);
+    doc.text("Campus Book Ordering System", 14, 20);
 
     doc.setFontSize(14);
     doc.text("ORDER FORM", 14, 30);
@@ -455,7 +455,7 @@ export default function OUPOrderPortal() {
   };
   return (
     <div className="container">
-      <h1>Oxford University Press East Africa</h1>
+      <h1>Campus Book Ordering System</h1>
       <h2>Online Order Portal</h2>
 
       <div className="card">
